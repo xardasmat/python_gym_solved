@@ -1,8 +1,13 @@
 import unittest
 
 def append(list, value):
-    #TODO(implement this function pretty please \(^_^)/ )
-    return None # this does not work, do it correctly please
+    if list is None:
+        return (value, None)
+    (head, tail) = list
+    if tail is None:
+        return (head, (value, None))
+    else:
+        return (head, append(tail, value))
 
 class TestStringMethods(unittest.TestCase):
 
