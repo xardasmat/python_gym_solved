@@ -1,10 +1,26 @@
 import unittest
 
+class Graph:
+    def __init__(self, graph):
+        self.G = graph
+        self.visited = set()
+
+    def dfs(self, v):
+        self.visited.add(v)
+        for n in self.G[v]:
+            if not n in self.visited:
+                self.dfs(n)
+
 def count_components(graph):
-    #TODO(implement this function pretty please \(^_^)/ )
-    # I want it to calculate a number of connected components in the graph.
-    # The graph is a list of neighbours. e.g. { 1: [2, 3])}
-    return None # this does not work, do it correctly please
+
+    G = Graph(graph)
+    components_count = 0
+    for node in graph:
+        if not node in G.visited:
+            components_count += 1
+            G.dfs(node)
+    
+    return components_count
 
 class TestStringMethods(unittest.TestCase):
 
