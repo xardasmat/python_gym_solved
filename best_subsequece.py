@@ -8,9 +8,10 @@ def find_max_sum(sequence):
 class TestStringMethods(unittest.TestCase):
 
     def test_some_sequence(self):
-        self.assertEqual(find_max_sum([1, 0, -4, 2, 0, 1, 2, -3, 2, 2]), 1)
+        self.assertEqual(find_max_sum([1, 0, -4, 2, 0, 1, 2, -3, 2, 2]), 6)
 
-
+    def test_negative_sequence(self):
+        self.assertEqual(find_max_sum([-1, -1, -1, -1, -1, -1, -1]), 0)
 
 if __name__ == '__main__':
     unittest.main()
