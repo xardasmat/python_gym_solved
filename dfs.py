@@ -14,6 +14,12 @@ class TestStringMethods(unittest.TestCase):
         #     3
         self.assertEqual(count_components({1: [2, 3], 2: [1], 3: [1]}), 1)
 
+    def test_deeper_connections(self):
+        #  1 -- 2 -- 4
+        #   \
+        #     3   5  6
+        self.assertEqual(count_components({1: [2, 3], 2: [1, 4], 3: [1], 4: [2], 5: [], 6: []}), 3)
+
     def test_two_disjoined_paths(self):
         # 1 -- 2
         #
